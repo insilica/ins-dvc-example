@@ -14,8 +14,14 @@ to be public and accessed via https.
 Continuing from the DVC setup example,
 
 ```
-dvc remote add s3http https://ins-dvc.s3.amazonaws.com/r-dsv-test
+dvc remote add s3http https://ins-dvc.s3.amazonaws.com/ins-dvc-example
 dvc remote default s3http
 git add .dvc/config 
 git commit -m "add s3http and change to default"
+```
+
+# use in another project
+
+```
+dvc import git@github.com:insilica/ins-dvc-example.git data -o data/ins-dvc-example
 ```
