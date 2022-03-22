@@ -41,13 +41,13 @@ dvc add data
 ```
 add a git remote
 ```
-git remote add origin git@github.com:jborden/r-dsv-test.git
+git remote add origin git@github.com:insilica/ins-dvc-example.git
 ```
 
 add a dvc remote
 
 ```
-dvc remote add -d s3 s3://ins-dvc/r-dsv-test
+dvc remote add -d s3 s3://ins-dvc/ins-dvc-example
 ```
 
 
