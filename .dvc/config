@@ -1,4 +1,6 @@
 [core]
-    remote = s3
+    remote = s3http
 ['remote "s3"']
     url = s3://ins-dvc/ins-dvc-example
+['remote "s3http"']
+    url = https://ins-dvc.s3.amazonaws.com/ins-dvc-example
