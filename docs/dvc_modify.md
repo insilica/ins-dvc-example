@@ -1,6 +1,6 @@
 Update Data
 ```
-echo "\nqux" >> data/foo.txt
+echo "qux" >> data/foo.txt
 ```
 
 Because the file is tracked in dvc, it won't show up in git status
