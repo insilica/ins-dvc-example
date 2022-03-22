@@ -1,4 +1,4 @@
-Here is are the guides for using DVC at Insilica
+DVC at Insilica Guides
 
 [Creating Data](dvc_create.md)
 
