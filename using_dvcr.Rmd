@@ -1,0 +1,46 @@
+---
+title: "DVC Example"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## install
+```{r}
+devtools::install_github("git@github.com:insilica/dvcr.git")
+library(dvcr)
+```
+## Using DVC with R 
+```{r}
+data_dir <- here::here("data")
+dir.create()
+cars_filename <- file.path(data_dir,"cars.txt")
+save(cars,file=cars_filename)
+
+# be sure to have dvc installed
+
+# this should fail, but is left as example
+dvcr::use_dvc()
+dvcr::add(path=data_dir)
+
+```
+
+You should also commit the data.dvc file generated
+```{sh}
+git add data.dvc
+```
+
+```{r}
+# this will also fail, but kept as example
+dvcr::remote_add(name = "s3", url = "s3://ins-dvc/ins-dvc-example")
+s3_remote = "s3"
+push(remote=s3_remote)
+
+# if this was the first time you downloaded the repo, you could do a
+pull()
+```
+
