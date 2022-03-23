@@ -1,0 +1,4 @@
+outs:
+- md5: 53999c0460e0f7d6efecdb276247239c
+  size: 302
+  path: cars.txt
