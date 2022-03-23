@@ -14,10 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 devtools::install_github("git@github.com:insilica/dvcr.git")
 library(dvcr)
 ```
-## Using DVC with R 
+## Adding files to track locally with dvcr
 ```{r}
 data_dir <- here::here("data")
-dir.create()
+dir.create(data_dir)
 cars_filename <- file.path(data_dir,"cars.txt")
 save(cars,file=cars_filename)
 
@@ -25,13 +25,13 @@ save(cars,file=cars_filename)
 
 # this should fail, but is left as example
 dvcr::use_dvc()
-dvcr::add(path=data_dir)
+dvcr::add(path=cars_filename)
 
 ```
 
 You should also commit the data.dvc file generated
-```{sh}
-git add data.dvc
+```{r}
+git2r::add(path=file.path(data_dir,"cars.txt.dvc"))
 ```
 
 ```{r}
@@ -42,5 +42,18 @@ push(remote=s3_remote)
 
 # if this was the first time you downloaded the repo, you could do a
 pull()
+```
+
+## Get files
+This will place `model.pkl` into the `data` dir
+```{r}
+dvcr::get("https://github.com/iterative/example-get-started","model.pkl",out="data")
+```
+
+## import files
+Get will only place the file into your `data` dir and will not track it
+Let's track another piece of data
+```{r}
+dvcr::import("git@github.com:iterative/example-get-started","data/data.xml",out="data")
 ```
 

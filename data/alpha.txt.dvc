@@ -1,0 +1,4 @@
+outs:
+- md5: 3ecdd4497e2c278c6ad59d6f8ed65c77
+  size: 20
+  path: alpha.txt

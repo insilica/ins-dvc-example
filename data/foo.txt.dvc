@@ -1,0 +1,4 @@
+outs:
+- md5: 268a5059001855fef30b4f95f82044ed
+  size: 12
+  path: foo.txt
