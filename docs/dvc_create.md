@@ -37,7 +37,8 @@ mkdir data ; echo "foo\nbar\nbaz" > data/foo.txt ; echo "alpha\nbravo\ncharlie" 
 
 add the data
 ```
-dvc add data
+dvc add data/foo.txt
+dvc add data/alpha.txt
 ```
 add a git remote
 ```
@@ -53,8 +54,8 @@ dvc remote add -d s3 s3://ins-dvc/ins-dvc-example
 
 commit the changes in git
 ```
-git add .gitignore
-git add data.dvc
+git add data/.gitignore
+git add data/*.dvc
 git commit -m "added data dir"
 ```
 
