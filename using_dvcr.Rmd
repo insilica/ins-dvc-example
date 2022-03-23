@@ -15,6 +15,11 @@ devtools::install_github("git@github.com:insilica/dvcr.git")
 library(dvcr)
 ```
 ## Adding files to track locally with dvcr
+
+You can't have a `data` dir and track all files with `dvcr::add("data")` for a project if you also want to `dvcr::import` into that dir at a later time to track remote files. You have to stick to using `dvcr::add` on just individual files that live in a `data` dir as opposed to adding whole directories at a time. If you try to add a `data` dir locally then try to `dvcr::import` another file into the `data` dir, it will break the dvc dir structure setup with .gitignore
+
+Succintly, only `dvcr::add` and `dvcr::import` individual files, not whole dirs. You may (and probably should) import remote files into subdirs, e.g. `data/pharmgkb/relationships.Rdata`. 
+
 ```{r}
 data_dir <- here::here("data")
 dir.create(data_dir)
