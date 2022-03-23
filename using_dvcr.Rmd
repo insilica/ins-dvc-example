@@ -45,15 +45,22 @@ pull()
 ```
 
 ## Get files
-This will place `model.pkl` into the `data` dir
+This will place relationships.Rdata into data/pharmgkb
 ```{r}
-dvcr::get("https://github.com/iterative/example-get-started","model.pkl",out="data")
+pharmgkb_dir = file.path(data_dir,"pharmgkb")
+dir.create(pharmgkb_dir)
+dvcr::get("git@github.com:insilica/pharmgkb-dvc.git","data/relationships.Rdata",out=pharmgkb_dir)
 ```
 
 ## import files
 Get will only place the file into your `data` dir and will not track it
-Let's track another piece of data
+
 ```{r}
-dvcr::import("git@github.com:iterative/example-get-started","data/data.xml",out="data")
+dvcr::import(url="git@github.com:insilica/pharmgkb-dvc.git",path="data/relationships.Rdata",out=pharmgkb_dir)
+```
+
+We now have the data, we can add it to our repo to be tracked by dvc
+```{r}
+git2r::add(path=pharmgkb_dir)
 ```
 

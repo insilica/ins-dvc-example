@@ -1,0 +1,11 @@
+md5: 19c906187058755c878fb54e754e6cc7
+frozen: true
+deps:
+- path: data/relationships.Rdata
+  repo:
+    url: git@github.com:insilica/pharmgkb-dvc.git
+    rev_lock: 40afc0e4daf3e5a73c1f2b9d3b43cc5e25833ccd
+outs:
+- md5: 2ba765808ba7b60b6fe696325f00e109
+  size: 1750289
+  path: relationships.Rdata
